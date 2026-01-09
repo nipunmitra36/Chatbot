@@ -19,5 +19,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::get('/chat', [SchoolChatController::class, 'index'])->name('chat.index');
+Route::post('/chat/send', [SchoolChatController::class, 'sendMessage'])->name('chat.send');
 require __DIR__ . '/auth.php';
